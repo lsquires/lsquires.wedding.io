@@ -357,7 +357,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-counter,
 #fh5co-event {
-  height: 850px;
+  height: 1050px;
   float: left;
 }
 #fh5co-counter .display-t,
@@ -1805,3 +1805,103 @@ form label {
 
 /*# sourceMappingURL=style.css.map */
 
+
+@import url("https://fonts.googleapis.com/css?family=Amaranth|Source+Sans+Pro&display=swap");
+
+body ul {
+  margin: 0;
+}
+body .center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.main {
+  padding: 5em 0;
+}
+.main h1 {
+  color: #61d4d7;
+  font-family: "Amaranth", sans-serif;
+  line-height: 1em;
+  margin-bottom: 2rem;
+}
+.main h3 {
+  color: #ffffff;
+  font-family: "Amaranth", sans-serif;
+}
+.main p {
+  color: #ffffff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+}
+.main .timeline {
+  position: relative;
+}
+.main .timeline:before {
+  background: #f1efef;
+  content: "";
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 4px;
+}
+.main .timeline .timeline-item {
+  clear: both;
+  list-style-type: none;
+  padding: 0 30px;
+  position: relative;
+}
+.main .timeline .timeline-item:before {
+  background: #8ed6d6;
+  border-radius: 50%;
+  content: "";
+  height: 20px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 20px;
+}
+.main .timeline .timeline-item .timeline-content {
+  background: #8ed6d6;
+  border: 2px solid #8ed6d6;
+  padding: 1em;
+  width: 25%;
+  transform: translateX(90%);
+}
+.main .timeline .timeline-item .timeline-content h3, .main .timeline .timeline-item .timeline-content p, .main .timeline .timeline-item .timeline-content button {
+  margin: 20px;
+}
+.main .timeline .timeline-item:nth-child(even) .timeline-content {
+  float: right;
+  transform: translateX(-90%);
+}
+.main .timeline .timeline-item:nth-child(2):before {
+  background: #bea4ec;
+}
+.main .timeline .timeline-item:nth-child(2) .timeline-content {
+  background: #bea4ec;
+  border: 2px solid #bea4ec;
+}
+.main .timeline .timeline-item:nth-child(3):before {
+  background: #aec785;
+}
+.main .timeline .timeline-item:nth-child(3) .timeline-content {
+  background: #aec785;
+  border: 2px solid #aec785;
+}
+.main .timeline button {
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  color: #656565;
+  font-weight: 500;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.main .timeline button:hover {
+  background: #ffffff;
+  border: 2px solid #656565;
+}
