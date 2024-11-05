@@ -24,6 +24,7 @@ $(document).ready(function() {
     clock = $(".clock").FlipClock(diff, {
       clockFace: "DailyCounter",
       countdown: true,
+      showSeconds: false,
       callbacks: {
         stop: function() {
           console.log("Timer has ended!")
