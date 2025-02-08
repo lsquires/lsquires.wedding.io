@@ -20,9 +20,17 @@
 
 
 	$(document).ready(function () {
-		if((location.search.indexOf('code=') !== -1) && (location.search.indexOf('code=pecan') !== -1)){
+		if((location.search.indexOf('code=') !== -1)){
 			console.log("here")
 			$('#invite-form-ceremony').css('display','block');
+		}
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		var invite_code = urlParams.get('code')
+		if (invite_code === "cocoa") {
+			var select = $('#attendance');
+			select.empty().append('<option value="yes reception">Yes! I can attend the evening reception</option><option value="no">I cannot :(</option>');
+			var select = $('#attendance');
 		}
 	});
 

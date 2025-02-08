@@ -357,14 +357,13 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-counter,
 #fh5co-event {
-  height: 1050px;
   float: left;
 }
 #fh5co-counter .display-t,
 #fh5co-counter .display-tc,
 #fh5co-event .display-t,
 #fh5co-event .display-tc {
-  height: 700px;
+  height: 200px;
   width: 100%;
 }
 #fh5co-counter .fh5co-heading h2,
@@ -392,7 +391,7 @@ h1, h2, h3, h4, h5, h6, figure {
   #fh5co-counter,
   #fh5co-event {
     height: inherit;
-    padding: 7em 0;
+    padding: 5em 0;
   }
   #fh5co-counter .display-t,
   #fh5co-counter .display-tc,
@@ -649,6 +648,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 0;
   margin: 0;
   width: 100%;
+  padding-bottom: 100px;
 }
 #fh5co-gallery-list li {
   display: block;
@@ -694,7 +694,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   border-radius: 7px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0);
 }
 #fh5co-gallery-list li a:hover:before {
   background: rgba(0, 0, 0, 0.5);
@@ -731,6 +731,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-gallery-list li.one-third {
   width: 32.3%;
+}
+#fh5co-gallery-list li.all {
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-gallery-list li.one-third {
@@ -973,7 +976,7 @@ form label {
 #fh5co-couple,
 #fh5co-gallery,
 .fh5co-section {
-  padding: 7em 0;
+  padding: 5em 0;
   clear: both;
 }
 @media screen and (max-width: 768px) {
