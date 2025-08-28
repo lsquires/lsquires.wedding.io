@@ -19,21 +19,6 @@
 	};
 
 
-	$(document).ready(function () {
-		if((location.search.indexOf('code=') !== -1)){
-			console.log("here")
-			$('#invite-form-ceremony').css('display','block');
-		}
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		var invite_code = urlParams.get('code')
-		if (invite_code === "cocoa") {
-			var select = $('#attendance');
-			select.empty().append('<option value="yes reception">Yes! I can attend the evening reception</option><option value="no">I cannot :(</option>');
-			var select = $('#attendance');
-		}
-	});
-
 	function alert_markup(alert_type, msg) {
 		return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
 	}
@@ -42,33 +27,27 @@
 	$('#rsvp-form').on('submit', function (e) {
 		e.preventDefault();
 		var data = $(this).serialize();
-		console.log(data)
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		var invite_code = urlParams.get('code')
-		data = `invite_code=${invite_code}&${data}`
+		var currentURL = (document.URL);
+		var part = currentURL.split("/")[1];
+		data = `event=${part}&${data}`
 		console.log(data)
 
 		$('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
-		var md5 = CryptoJS.MD5(invite_code).toString()
-		if (md5 !== '2a1690396c1e7e60cef833400383ff49'
-			&& md5 !== '1ed76d35f95379c2c1b160c2154c5c42') {
-			$('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-		} else {
-			$.post('https://script.google.com/macros/s/AKfycbwpILEYt6w733OhsYKuhngTkuty2g0rkKGzP3K5BVsasM8dVeA0a65VdWFz2BTi-Oc0/exec', data)
-				.done(function (data) {
-					console.log(data);
-					if (data.result === "error") {
-						$('#alert-wrapper').html(alert_markup('danger', data.message));
-					} else {
-						$('#alert-wrapper').html(alert_markup('success', '<strong>Done!</strong> Thanks for confirming.'));
-					}
-				})
-				.fail(function (data) {
-					console.log(data);
-					$('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-				});
-		}
+	
+		$.post('https://script.google.com/macros/s/AKfycbwpILEYt6w733OhsYKuhngTkuty2g0rkKGzP3K5BVsasM8dVeA0a65VdWFz2BTi-Oc0/exec', data)
+			.done(function (data) {
+				console.log(data);
+				if (data.result === "error") {
+					$('#alert-wrapper').html(alert_markup('danger', data.message));
+				} else {
+					$('#alert-wrapper').html(alert_markup('success', '<strong>Done!</strong> Thanks for confirming.'));
+				}
+			})
+			.fail(function (data) {
+				console.log(data);
+				$('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+			});
+		
 	});
 
 	var offcanvasMenu = function() {
