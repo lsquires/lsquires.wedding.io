@@ -27,8 +27,7 @@
 	$('#rsvp-form').on('submit', function (e) {
 		e.preventDefault();
 		var data = $(this).serialize();
-		var currentURL = (document.URL);
-		var part = currentURL.split("/")[1];
+		var part = window.location.pathname.slice(1)
 		data = `event=${part}&${data}`
 		console.log(data)
 
